@@ -1,0 +1,27 @@
+<script src="__javascript__/CheapMarkovsTracedQuick.js"></script>
+<h2>Cheap Markovs, Traced Quick!</h2>
+<p>
+  <label id="input" for="source_file_input">Input file (should be plaintext, can't contain '{' or '}'):</label>
+  <input type="file" id="source_file_input" name="source_file" />
+<p>
+  <label id = "input">N-gram length (recommended 4 for chars, 5 for words):</label>
+  <input type="number" min="1" max="20" id="ngram_length_input" name="ngram_length" value=4 />
+<p>
+  <label id = "input">Line delimiters:</label>
+  <input type="text" id="line_delimiters_input" name="line_delimiters" />
+<p>
+  <fieldset>
+    <legend>Tokenisation mode:</legend>
+    <input type="radio" id="tokenisation_chars_input" name="tokenisation" value="chars" checked />
+    <label for="tokenisation_chars_input">Chars</label>
+    <input type="radio" id="tokenisation_words_input" name="tokenisation" value="words" />
+    <label for="tokenisation_words_input">Words and separators</label>
+  </fieldset>
+<p>
+  <div id = "update">
+    <button onclick="CheapMarkovsTracedQuick.cmtq()">Update!</button>
+  </div>
+<p>
+  <div id = "update">Output:
+    <textarea id="tracery_grammar" readonly></textarea>
+  </div>
