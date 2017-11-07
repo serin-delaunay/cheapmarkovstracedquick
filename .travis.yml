@@ -4,8 +4,6 @@ install:
   - pip install transcrypt
 script:
   - transcrypt -b cmtq_web.py
-  - git add -a
-  - git commit -m 'add '
 branches:
   only:
     - master
