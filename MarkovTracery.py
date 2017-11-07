@@ -1,12 +1,10 @@
 import itertools as it
 import re
-#from enum import Enum
-
 
 # enum not supported by transcrypt
 class Tokenisation:
-    Chars = 0
-    Words = 1
+    class Chars: pass
+    class Words: pass
 
 class START: pass
 class END: pass
