@@ -1,0 +1,17 @@
+language: python
+python: "3.6"
+install:
+  - pip install transcrypt
+script:
+  - transcrypt -b cmtq_web.py
+  - git add -a
+  - git commit -m 'add '
+branches:
+  only:
+    - master
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
