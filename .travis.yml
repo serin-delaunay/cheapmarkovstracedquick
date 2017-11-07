@@ -3,7 +3,7 @@ python: "3.6"
 install:
   - pip install transcrypt
 script:
-  - transcrypt -b cmtq_web.py
+  - transcrypt -b -e 6 cmtq_web.py
 branches:
   only:
     - master
