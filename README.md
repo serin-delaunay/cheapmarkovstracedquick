@@ -8,7 +8,7 @@ so it can be run as a native Python script (cmtq-console.py),
 or compiled to a JavaScript library and run in a webpage.
 
 You can use Cheap Markovs, Traced Quick! in your browser, with no installation required, at
-[https://serin-delaunay.github.io/cheapmarkovstracedquick/CMTQ.html](https://serin-delaunay.github.io/cheapmarkovstracedquick/CMTQ.html).
+[https://serin-delaunay.github.io/cheapmarkovstracedquick](https://serin-delaunay.github.io/cheapmarkovstracedquick).
 
 # Tutorial
 
