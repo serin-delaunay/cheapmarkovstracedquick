@@ -87,7 +87,6 @@ class Production(object):
             self._data[key] = 1
     def next_token(self, production):
         if production == END:
-            print("end detected:", production, self._prefix)
             return token_rendering(production)
         else:
             return token_rendering(production)+"#{}{}#".format(self._prefix, token_symbol(production))
@@ -131,14 +130,13 @@ class MarkovAnalyser(object):
         #escaped_delimiters = '|'.join('\\Q{}\\E'.format(d) for d in delimiters)
         pattern = '([^{0}]*[{0}]+)'.format(delimiters)
         # TODO this definitely does not account for all possitibilities ('-' in particular)
-        print(repr(delimiters), repr(pattern))
+        # print(repr(delimiters), repr(pattern))
         return [line for line in
                 re.split(pattern, string)
                 if line != '']
     
     def parse_source(self, string):
         for line in self.split_source(string, self.delimiters):
-            print(line)
             self.parse_line(line)
   
     def ngram_list(self, line):
@@ -158,7 +156,6 @@ class MarkovAnalyser(object):
         line_aug.extend(self.split_line(line))
         line_aug.append(END)
         for ngram in self.ngram_list(line_aug):
-            #print(ngram)
             # list[-1] not supported in Transcrypt, list[-1:][0] supported
             self.increment_transition(tuple(ngram[:-1]),ngram[-1:][0])
         
