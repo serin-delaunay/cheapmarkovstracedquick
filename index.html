@@ -11,13 +11,13 @@ CMTQ is still under development; see <a href="https://github.com/serin-delaunay/
 <p>
   <input type="file" id="source_files_input" name="source_files" onchange="cmtq_web.load_source_files()" multiple />
 <p>
-  <label id = "input">N-gram length (recommended 4 for characters, 5 for words):</label>
-  <input type="number" min="1" max="20" id="ngram_length_input" name="ngram_length" value=4 />
-<p>
   <label id = "input">Line delimiters (\r\n to split at line breaks):</label>
   <input type="text" id="line_delimiters_input" name="line_delimiters" value="\r\n"/>
   <label id = "input">Include line delimiters in lines:</label>
   <input type="checkbox" id="include_delimiters_input" name="include_delimiters" />
+<p>
+  <label id = "input">N-gram length (recommended 4 for characters, 5 for words):</label>
+  <input type="number" min="1" max="20" id="ngram_length_input" name="ngram_length" value=4 />
 <p>
   <fieldset>
     <legend>Tokenisation mode:</legend>
