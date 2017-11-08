@@ -12,9 +12,6 @@ class Tokenisation:
 START = "   START   \n   TOKEN   "
 END = "   END   \n   TOKEN   "
 
-assert(START != END)
-print(str(START == END))
-
 connector = '_'
 # TODO provide option to save space by excluding connector (), at risk of ambiguity and awfulness?
 # Note: CBDQ has a special interpretation for {} and it doesn't seem to be possible to escape them.
