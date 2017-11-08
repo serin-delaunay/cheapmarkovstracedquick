@@ -64,7 +64,9 @@ here are lines 1,
 and one-point-five!
 ```
 Output line 2:
-```this seems to be line 2?```
+```
+this seems to be line 2?
+```
 
 ### Example 3
 `.?!`, delimiters included, input text:
