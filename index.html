@@ -4,8 +4,12 @@
 CMTQ is still under development; see <a href="https://github.com/serin-delaunay/cheapmarkovstracedquick">Github</a> for information and tutorials, or to report bugs!
 </div>
 <p>
-  <label id="input" for="source_file_input">Input file (should be plaintext, '{' and '}' will break CBDQ):</label>
-  <input type="file" id="source_file_input" name="source_file" />
+  <label id="input" for="source_file_input">Input text (should be plaintext, '{' and '}' will break CBDQ):</label>
+  <button onclick="source_text_input.value=''">Clear</button>
+<p>
+  <textarea id="source_text_input" name="source_text"></textarea>
+<p>
+  <input type="file" id="source_files_input" name="source_files" onchange="cmtq_web.load_source_files()" multiple />
 <p>
   <label id = "input">N-gram length (recommended 4 for characters, 5 for words):</label>
   <input type="number" min="1" max="20" id="ngram_length_input" name="ngram_length" value=4 />
@@ -27,6 +31,6 @@ CMTQ is still under development; see <a href="https://github.com/serin-delaunay/
     <button onclick="cmtq_web.cmtq()">Update!</button>
   </div>
 <p>
-  <div id = "update">Output (paste into <a href="https://cheapbotsdonequick.com">cheapbotsdonequick</a> or your favourite Tracery generator):
-    <textarea id="tracery_grammar" readonly></textarea>
-  </div>
+  <div id = "update">Output (paste into <a href="https://cheapbotsdonequick.com">cheapbotsdonequick</a> or your favourite Tracery generator):</div>
+<p>
+  <textarea id="tracery_grammar" readonly></textarea>
