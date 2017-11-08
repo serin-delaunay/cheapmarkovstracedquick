@@ -25,7 +25,7 @@ and unicode characters might not work when added with the file uploader.
 If your Markov chain grammar is going to generate tweets,
 it needs to know where to stop,
 and it needs to stop before it hits the character limit.
-To do this it needs the source text to be broken into &quo;lines&quo;.
+To do this it needs the source text to be broken into "lines".
 These don't have to be literal lines in your source text;
 If you want a bot to generate multi-line tweets,
 you can do that.
