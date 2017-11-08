@@ -6,8 +6,14 @@ class Tokenisation:
     class Chars: pass
     class Words: pass
 
-class START: pass
-class END: pass
+# Transcrypt compatibility:
+# Must not compare equal to any other token or each other, both as a value and as a dict key.
+# Whitespace and length ensure that these cannot occur as tokens in source text.
+START = "   START   \n   TOKEN   "
+END = "   END   \n   TOKEN   "
+
+assert(START != END)
+print(str(START == END))
 
 connector = '_'
 # TODO provide option to save space by excluding connector (), at risk of ambiguity and awfulness?
@@ -22,6 +28,7 @@ char_symbols = {
     '"':'_Q_',
     '.': '_F_',
     '_': '_U_',
+    '\r': '_CR_', # HTML5 file input doesn't autoconvert newlines to \n
     '\n': '_N_',
     "\t": '_T_'
 }
@@ -103,11 +110,12 @@ class Production(object):
         return L
 
 class MarkovAnalyser(object):
-    def __init__(self, ngram_size=4, tokenisation=Tokenisation.Chars, delimiters='\n'):
+    def __init__(self, ngram_size=4, tokenisation=Tokenisation.Chars, delimiters='\n', include_delimiters=False):
         self.wipe_data()
         self.ngram_size = ngram_size
         self.tokenisation = tokenisation
         self.delimiters = delimiters
+        self.include_delimiters=include_delimiters
     def wipe_data(self):
         self._data = {} # Don't use defaultdict so that collections is not a dependency
     def ngram_code(self, ngram):
@@ -126,7 +134,10 @@ class MarkovAnalyser(object):
         #escaped_delimiters = re.escape(delimiters)
         #escaped_delimiters = ''.join('\\Q{}\\E'.format(d) for d in delimiters)
         #escaped_delimiters = '|'.join('\\Q{}\\E'.format(d) for d in delimiters)
-        pattern = '([^{0}]*[{0}]+)'.format(delimiters)
+        if self.include_delimiters:
+            pattern = '([^{0}]*[{0}]+)'.format(delimiters)
+        else:
+            pattern = '[{0}]+'.format(delimiters)
         # TODO this definitely does not account for all possitibilities ('-' in particular)
         # print(repr(delimiters), repr(pattern))
         return [line for line in

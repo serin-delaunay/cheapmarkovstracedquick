@@ -8,6 +8,7 @@ def cmtq():
         return
     tokenisation = {'chars':MT.Tokenisation.Chars, 'words':MT.Tokenisation.Words}[tokenisation_str]
     line_delimiters = document.getElementById('line_delimiters_input').value
+    include_delimiters = bool(document.getElementById('include_delimiters_input').checked)
     source_files = document.getElementById('source_file_input').files
     # TODO allow pasting source text in a textarea
     if len(source_files) == 0:
@@ -16,9 +17,10 @@ def cmtq():
     source_file = source_files[0]
     source_file_reader = __new__(FileReader())
     source_file_reader.onload = lambda event: generate_grammar(
-        event.target.result, ngram_size, tokenisation, line_delimiters)
+        event.target.result, ngram_size, tokenisation, line_delimiters, include_delimiters)
     source_file_reader.readAsText(source_file)
-def generate_grammar(text, ngram_size, tokenisation, line_delimiters):
-    ma = MT.MarkovAnalyser(ngram_size, tokenisation, line_delimiters)
+
+def generate_grammar(text, ngram_size, tokenisation, line_delimiters, include_delimiters):
+    ma = MT.MarkovAnalyser(ngram_size, tokenisation, line_delimiters, include_delimiters)
     ma.parse_source(text)
     document.getElementById('tracery_grammar').value = JSON.stringify(ma.output_grammar())

@@ -19,13 +19,13 @@ if __name__ == '__main__':
     tokenisation.add_argument('-w', '--words', action='store_const', dest='tokenisation', const=MT.Tokenisation.Words, help="treat the text as an alternating sequence of words and punctuation+whitespace")
     parser.add_argument('-d', '--line-delimiters', metavar='"\\n"', default='"\\n"', help="escaped string containing characters which will be used to split the input file into lines.")
     parser.add_argument('--include-delimiters', default=False, action='store_true', help="Include delimiter characters in separated lines")
-    # TODO implement include-delimiters=false and make MA use the option.
     args = parser.parse_args()
     print(args)
     ma = MT.MarkovAnalyser(
         ngram_size=args.ngram_size,
         tokenisation=args.tokenisation,
-        delimiters=args.line_delimiters) #bytes(args.line_delimiters, 'utf8').decode('unicode_escape'))
+        delimiters=args.line_delimiters,
+        include_delimiters=args.include_delimiters) #bytes(args.line_delimiters, 'utf8').decode('unicode_escape'))
     #line = "hello there I am happy to meet you my name is Serin hows it going are you good I hope we are all doing good today is it not a lovely day how wonderful. by the way I'm a twitterbot, hope ya don't mind!!!"
     #line = "#\\#\\#\\#\\#\\$^&*%)!)*!()))*$%&)][][][][][][once upon a time there was a [][]][~~~\"~~~~¬¬¬¬````||\"||||////????.,.,.,.,and they were very<><><++++-==-=-=--___;;;;very::@@@@@''''||"
     #line = 'ababababababababa'
