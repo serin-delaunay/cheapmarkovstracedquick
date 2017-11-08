@@ -134,13 +134,13 @@ Output (characters, n=4):
 Output (characters, n=5):
 `when a warm cloak off should be could be confess the stronger of the traveler fold him;`
 
-Output (words, 4):
+Output (words, n=4):
 `when a traveler fold his cloak off should be considered stronger of the North Wind gave up the Sun shined out warmly,`
 
-Output (words, 5):
+Output (words, n=5):
 `And so the North Wind was obliged to confess that the Sun were disputing which was the stronger of the two.`
 
-Output (words, 6):
+Output (words, n=6):
 `but the more closely did the traveler fold his cloak off should be considered stronger than the other.`
 
 ## Generate a Tracery grammar!
