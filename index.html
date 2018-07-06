@@ -1,0 +1,36 @@
+<script src="__javascript__/cmtq_web.js"></script>
+<h2>Cheap Markovs, Traced Quick!</h2>
+<div>
+CMTQ is still under development; see <a href="https://github.com/serin-delaunay/cheapmarkovstracedquick">Github</a> for information and tutorials, or to report bugs!
+</div>
+<p>
+  <label id="input" for="source_file_input">Input text (should be plaintext, '{' and '}' will break CBDQ):</label>
+  <button onclick="source_text_input.value=''">Clear</button>
+<p>
+  <textarea id="source_text_input" name="source_text"></textarea>
+<p>
+  <input type="file" id="source_files_input" name="source_files" onchange="cmtq_web.load_source_files()" multiple />
+<p>
+  <label id = "input">Line delimiters (\r\n to split at line breaks):</label>
+  <input type="text" id="line_delimiters_input" name="line_delimiters" value="\r\n"/>
+  <label id = "input">Include line delimiters in lines:</label>
+  <input type="checkbox" id="include_delimiters_input" name="include_delimiters" />
+<p>
+  <label id = "input">N-gram length (recommended 4 for characters, 5 for words):</label>
+  <input type="number" min="1" max="20" id="ngram_length_input" name="ngram_length" value=4 />
+<p>
+  <fieldset>
+    <legend>Tokenisation mode:</legend>
+    <input type="radio" id="tokenisation_chars_input" name="tokenisation" value="chars" checked />
+    <label for="tokenisation_chars_input">Characters</label>
+    <input type="radio" id="tokenisation_words_input" name="tokenisation" value="words" />
+    <label for="tokenisation_words_input">Words and separators</label>
+  </fieldset>
+<p>
+  <div id = "update">
+    <button onclick="cmtq_web.cmtq()">Update!</button>
+  </div>
+<p>
+  <div id = "update">Output (paste into <a href="https://cheapbotsdonequick.com">cheapbotsdonequick</a> or your favourite Tracery generator):</div>
+<p>
+  <textarea id="tracery_grammar" readonly></textarea>
